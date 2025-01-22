@@ -1,0 +1,36 @@
+name: Deploy Grostl to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build Site
+        run: hugo
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::731070500579:role/Github-thijsdev
+          aws-region: eu-central-1
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync public/ s3://grostlpedia.nl/ --acl public-read --delete
