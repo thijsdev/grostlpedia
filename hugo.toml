@@ -1,5 +1,14 @@
 languageCode = "en-us"
+langs.Language = "en-us"
 title = "Grostlpedia"
-theme = "ananke"
+theme = "grostl-review-theme"
 author = "MiraSki"
-description = "A Wikipedia for Tiroler Gröstl"
+description = "The Wikipedia for Tiroler Gröstl"
+image = "/images/pistezicht.png"
+
+defaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    languageName = "English"
+  [languages.nl]
+    languageName = "Dutch"

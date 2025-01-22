@@ -1,0 +1,4 @@
+title = "Grostl Reviews"
+baseURL = "http://grostlpedia.nl/"
+languageCode = "en-us"
+theme = "grostl-review-theme"

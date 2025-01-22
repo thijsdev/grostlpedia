@@ -1,0 +1,10 @@
+{{ define "main" }}
+<ul>
+    {{ range sort .Pages "Params.rating" "desc" }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }} <b>({{ .Params.rating }})</b></a></br>
+        <a href="{{ .RelPermalink }}"><img src="{{ .Params.image }}" alt="Image for {{ .Title }}" style="max-width: 200px; height: auto;"></a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
